@@ -1,0 +1,4119 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    184669,       4109]
+NotebookOptionsPosition[    184157,       4092]
+NotebookOutlinePosition[    184493,       4107]
+CellTagsIndexPosition[    184450,       4104]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"usTreasuryRates", " ", "=", " ", 
+  RowBox[{
+  "Import", "[", 
+   "\"\<http://data.treasury.gov/feed.svc/DailyTreasuryYieldCurveRateData?$\
+filter=month(NEW_DATE)%20eq%202%20and%20year(NEW_DATE)%20eq%202020\>\"", 
+   "]"}]}]], "Input",
+ CellLabel->
+  "In[104]:=",ExpressionUUID->"be647746-1be7-4de4-9c1e-3aa151aed8b5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", " ", "=", " ", 
+  RowBox[{"ImportString", "[", 
+   RowBox[{"usTreasuryRates", ",", " ", "\"\<XML\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7914083824183283`*^9, 3.791408390782043*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"e3ce127a-55b3-4a6a-abb2-a05f8ea12fd4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"XMLObject", "[", "\<\"Document\"\>", "]"}], "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"XMLObject", "[", "\<\"Declaration\"\>", "]"}], "[", 
+     RowBox[{
+      RowBox[{"\<\"Version\"\>", "\[Rule]", "\<\"1.0\"\>"}], ",", 
+      RowBox[{"\<\"Encoding\"\>", "\[Rule]", "\<\"utf-8\"\>"}], ",", 
+      RowBox[{"\<\"Standalone\"\>", "\[Rule]", "\<\"yes\"\>"}]}], "]"}], 
+    "}"}], ",", 
+   RowBox[{"XMLElement", "[", 
+    RowBox[{"\<\"feed\"\>", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"http://www.w3.org/XML/1998/namespace\"\>", 
+          ",", "\<\"base\"\>"}], "}"}], 
+        "\[Rule]", "\<\"http://data.treasury.gov/Feed.svc/\"\>"}], ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"http://www.w3.org/2000/xmlns/\"\>", ",", "\<\"d\"\>"}], 
+         "}"}], "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices\"\>"}], ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"http://www.w3.org/2000/xmlns/\"\>", ",", "\<\"m\"\>"}], 
+         "}"}], "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/metadata\"\>"}], 
+       ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"http://www.w3.org/2000/xmlns/\"\>", 
+          ",", "\<\"xmlns\"\>"}], "}"}], 
+        "\[Rule]", "\<\"http://www.w3.org/2005/Atom\"\>"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"title\"\>", ",", 
+         RowBox[{"{", 
+          RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+         RowBox[{"{", "\<\"DailyTreasuryYieldCurveRateData\"\>", "}"}]}], 
+        "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"id\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{
+         "{", "\<\"http://data.treasury.gov/feed.svc/\
+DailyTreasuryYieldCurveRateData\"\>", "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"updated\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"link\"\>", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"self\"\>"}], ",", 
+           
+           RowBox[{"\<\"title\"\>", 
+            "\[Rule]", "\<\"DailyTreasuryYieldCurveRateData\"\>"}], ",", 
+           
+           RowBox[{"\<\"href\"\>", 
+            "\[Rule]", "\<\"DailyTreasuryYieldCurveRateData\"\>"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7529)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7529)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7529\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-03T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.46\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.36\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.34\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.35\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.45\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.54\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.84\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.01\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.01\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7530)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7530)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7530\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-04T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.55\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.48\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.41\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.4\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.42\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.52\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.61\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.91\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.08\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.08\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7531)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7531)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7531\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-05T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.55\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.49\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.44\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.43\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.46\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.66\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.97\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.14\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.14\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7532)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7532)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7532\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-06T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.51\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.44\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.43\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.45\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.65\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.94\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.11\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.11\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7533)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7533)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7533\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-07T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.49\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.41\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.39\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.41\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.51\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.89\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.05\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.05\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7534)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7534)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7534\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-10T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.45\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.37\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.36\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.38\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.47\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.87\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.03\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.03\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7535)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7535)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7535\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-11T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.55\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.48\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.41\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.39\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.4\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.5\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.89\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.05\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.05\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7536)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7536)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7536\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-12T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.57\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.49\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.44\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.42\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.45\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.55\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.62\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.93\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.09\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.09\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7537)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7537)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7537\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-13T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.48\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.44\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.42\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.43\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.53\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.61\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.91\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.07\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.07\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7538)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7538)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7538\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-14T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.6\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.6\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.49\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.42\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.4\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.42\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.51\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.59\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.89\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.04\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.04\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7539)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7539)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7539\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-18T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.61\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.6\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.47\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.41\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.37\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.39\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.48\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.55\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.85\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7540)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7540)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7540\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-19T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.61\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.61\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.47\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.42\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.39\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.41\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.5\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.86\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.01\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2.01\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7541)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7541)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7541\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-20T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.61\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.6\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.58\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.55\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.46\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.39\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.35\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.37\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.45\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.52\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.81\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.97\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.97\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+       RowBox[{"XMLElement", "[", 
+        RowBox[{"\<\"entry\"\>", ",", 
+         RowBox[{"{", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"id\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{
+             "{", "\<\"http://data.treasury.gov/Feed.svc/\
+DailyTreasuryYieldCurveRateData(7542)\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"title\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"text\"\>"}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"updated\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "\<\"2020-02-23T00:56:44Z\"\>", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"author\"\>", ",", 
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{"\<\"name\"\>", ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"link\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\<\"rel\"\>", "\[Rule]", "\<\"edit\"\>"}], ",", 
+               
+               RowBox[{"\<\"title\"\>", 
+                "\[Rule]", "\<\"DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"href\"\>", 
+                "\[Rule]", \
+"\<\"DailyTreasuryYieldCurveRateData(7542)\"\>"}]}], "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"category\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               
+               RowBox[{"\<\"term\"\>", 
+                "\[Rule]", \
+"\<\"TreasuryDataWarehouseModel.DailyTreasuryYieldCurveRateDatum\"\>"}], ",", 
+               
+               
+               RowBox[{"\<\"scheme\"\>", 
+                "\[Rule]", \
+"\<\"http://schemas.microsoft.com/ado/2007/08/dataservices/scheme\"\>"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", "}"}]}], "]"}], ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\<\"content\"\>", ",", 
+             RowBox[{"{", 
+              RowBox[{"\<\"type\"\>", "\[Rule]", "\<\"application/xml\"\>"}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 
+                 RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"properties\"\>"}], "}"}], ",", 
+                RowBox[{"{", "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"Id\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Int32\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"7542\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"NEW_DATE\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.DateTime\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"2020-02-21T00:00:00\"\>", "}"}]}], 
+                   "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.6\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.6\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.56\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_6MONTH\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.53\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_1YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.43\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_2YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.34\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_3YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.3\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_5YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.3\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_7YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.39\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_10YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.46\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_20YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.75\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEAR\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.9\"\>", "}"}]}], "]"}], ",", 
+                  RowBox[{"XMLElement", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices\"\>", ",", "\<\"BC_30YEARDISPLAY\"\>"}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"\<\"http://schemas.microsoft.com/ado/2007/08/\
+dataservices/metadata\"\>", ",", "\<\"type\"\>"}], "}"}], 
+                    "\[Rule]", "\<\"Edm.Double\"\>"}], "}"}], ",", 
+                    RowBox[{"{", "\<\"1.9\"\>", "}"}]}], "]"}]}], "}"}]}], 
+               "]"}], "}"}]}], "]"}]}], "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", "}"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.791408391145977*^9},
+ CellLabel->
+  "Out[106]=",ExpressionUUID->"0b95d8b1-038f-4658-af31-0706ced5c9c6"]
+}, Open  ]]
+},
+WindowSize->{808, 812},
+WindowMargins->{{36, Automatic}, {5, Automatic}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 342, 8, 94, "Input",ExpressionUUID->"be647746-1be7-4de4-9c1e-3aa151aed8b5"],
+Cell[CellGroupData[{
+Cell[925, 32, 305, 6, 30, "Input",ExpressionUUID->"e3ce127a-55b3-4a6a-abb2-a05f8ea12fd4"],
+Cell[1233, 40, 182908, 4049, 18830, "Output",ExpressionUUID->"0b95d8b1-038f-4658-af31-0706ced5c9c6"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
